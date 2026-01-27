@@ -1,0 +1,131 @@
+.related-products {
+    width: 100%;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.related-title {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.related-title h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.related-title hr {
+    width: 120px;
+    height: 4px;
+    background-color: #ff4141;
+    border: none;
+    margin: 0 auto 40px auto;
+}
+
+.related-products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.related-products-list img {
+    width: 100%;
+    max-width: 220px;
+    height: 260px;
+    object-fit: contain;
+    margin: auto;
+    display: block;
+    border-radius: 200px;
+    cursor: pointer;
+}
+
+.related-products-list img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 480px) {
+
+    .related-title h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .related-title hr {
+        width: 140px;
+        height: 4px;
+        left: 0;
+        margin: 10px auto;
+    }
+
+    .related-products-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .related-products-list img {
+        width: 85%;
+        height: auto;
+        margin: 20px auto;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .related-title h2 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .related-title hr {
+        width: 220px;
+        left: 0;
+        margin: 12px auto;
+    }
+
+    .related-products-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .related-products-list img {
+        width: 75%;
+        height: auto;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .related-title {
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .related-title h2 {
+        font-size: 42px;
+    }
+
+    .related-title hr {
+        width: 320px;
+        left: 0;
+        margin: 14px auto;
+    }
+
+    .related-products-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .related-products-list img {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

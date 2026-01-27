@@ -1,0 +1,147 @@
+/* --- Container --- */
+.checkout-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background-color: #ffffff;
+  border: 3px solid gray;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.checkout-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.checkout-section input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 3px solid gray;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.checkout-section input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+.checkout-summary {
+  margin-top: 25px;
+}
+
+.checkout-summary select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 3px solid gray;
+  border-radius: 8px;
+  background-color: #fafafa;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+.checkout-total {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.checkout-total h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+
+.checkout-total button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border: 1px solid black;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-total button:hover {
+  background-color:whitesmoke;
+  color:red ;
+  transform: translateY(-2px);
+}
+
+.checkout-total button:active {
+  transform: translateY(0);
+}
+@media (max-width: 480px) {
+
+  .checkout-container {
+    margin: 20px 10px;
+    padding: 20px 15px;
+    border-width: 2px;
+  }
+
+  .checkout-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .checkout-section h3 {
+    font-size: 1.05rem;
+  }
+
+  .checkout-section input,
+  .checkout-summary select {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .checkout-total h3 {
+    font-size: 1.1rem;
+  }
+
+  .checkout-total button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .checkout-container {
+    max-width: 520px;
+    padding: 25px 20px;
+  }
+
+  .checkout-container h2 {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .checkout-container {
+    max-width: 580px;
+  }
+}
+@media (min-width: 1200px) {
+
+  .checkout-container {
+    max-width: 600px;
+  }
+}

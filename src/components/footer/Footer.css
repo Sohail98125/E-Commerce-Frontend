@@ -1,0 +1,148 @@
+
+.footer {
+  background:#FAFAFA;
+  padding: 40px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;   
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;    
+}
+
+.service-info {
+  flex: 1 1 200px;    
+  min-width: 200px;
+  text-align: center;
+  padding: 20px;
+  background: #181818;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.service-icon {
+  margin-bottom: 12px;
+}
+
+.service-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.service-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgb(219, 220, 219);
+}
+
+.service-info .desc {
+  font-size: 14px;
+  color: rgb(219, 220, 219);
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+
+    .footer {
+        padding: 25px 15px;
+        margin-top: 50px;
+    }
+
+    .footer-left {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .service-info {
+        flex: 1 1 100%;
+        min-width: unset;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .service-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .service-info h4 {
+        font-size: 16px;
+    }
+
+    .service-info .desc {
+        font-size: 13px;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer-left {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .service-info {
+        flex: 1 1 45%;
+        min-width: unset;
+        padding: 18px;
+    }
+
+    .service-icon img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .service-info h4 {
+        font-size: 17px;
+    }
+
+    .service-info .desc {
+        font-size: 14px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .footer-left {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .service-info {
+        flex: 1 1 30%;
+        min-width: 250px;
+        padding: 20px;
+    }
+
+    .service-icon img {
+        width: 50px;
+        height: 50px;
+    }
+}
+@media (min-width: 1200px) {
+
+    .footer-left {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-info {
+        flex: 1 1 23%;
+    }
+}
