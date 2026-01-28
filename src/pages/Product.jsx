@@ -3,7 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import axios from 'axios'
 import RelatedProduct from '../components/relatedproduct/RelatedProduct'
+import Loader from '../components/loader/Loader'
 import './Product.css'
+
 
 const Product = () => {
 
@@ -19,7 +21,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/products/product/${_id}`)
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/product/${_id}`)
         setProduct(res.data.product)
       } catch (error) {
         console.error("Error fetching product", error);
@@ -32,7 +34,7 @@ const Product = () => {
   }, [_id])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Loader text="Loading product..." /> 
   }
 
   if (!product) {

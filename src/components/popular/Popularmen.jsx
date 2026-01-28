@@ -1,29 +1,55 @@
 import React, { useEffect, useState } from "react";
 import { getPopularProducts } from "../../productapi";
+import Loader from "../loader/Loader";
 import Item from '../items/Item';
 import './Popularmen.css'
 const Popularmen = () => {
-      const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
+     const[loading,setLoading]=useState(true)
 
-  useEffect(() => {
-    const fetchPopular = async () => {
-      const data = await getPopularProducts("men");
-      setProducts(data);
-    };
-    fetchPopular();
-  }, []);
-  
- return (
+    useEffect(() => {
+        const fetchPopular = async () => {
+            try {
+                setLoading(true);
+                const data = await getPopularProducts("men");
+                setProducts(data || []);
+            } catch (error) {
+                console.error("Popular products error:", error);
+                setProducts([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchPopular();
+    }, []);
+
+    return (
         <div className='populars-container'>
 
             <div className='populars'>
                 <h1>POPULAR IN MEN</h1>
                 <hr />
-                <div className='populars-items'>
-                    {products.map((item, i) => {
-                        return <Item key={i} id={item._id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
-                    })}
-                </div>
+                {loading ? (
+                    <Loader text="Loading popular products..." />
+                ) : (
+                    <div className="popular-items">
+                        {products.length > 0 ? (
+                            products.map((item, i) => (
+                                <Item
+                                    key={i}
+                                    id={item._id}
+                                    name={item.name}
+                                    image={item.image}
+                                    old_price={item.old_price}
+                                    new_price={item.new_price}
+                                />
+                            ))
+                        ) : (
+                            <p>No popular products found</p>
+                        )}
+                    </div>
+                )}
+
             </div>
         </div>
     )

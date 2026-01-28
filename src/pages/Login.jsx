@@ -5,7 +5,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import { ToastContainer, toast } from 'react-toastify';
+import Loader from '../components/loader/Loader'
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Login = () => {
@@ -15,15 +17,19 @@ const Login = () => {
     })
     const { addItem, emptyCart } = useCart();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false)
     const handleLoginChange = (e) => {
         const { name, value } = e.target
         setLogin({ ...login, [name]: value })
     }
     const handleLoginSubmit = async (e) => {
         e.preventDefault()
+        if (!Login.email || !Login.password) {
+            toast.error("All fields are required")
+        }
         try {
-            const response = await axios.post('http://localhost:4000/api/auth/login', login)
-            console.log(response.data)
+            setLoading(true)
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, login)
             toast.success("Login successfull")
             setTimeout(() => {
                 const user = response.data.user;
@@ -39,25 +45,36 @@ const Login = () => {
                 navigate("/")
             }, 1500);
         } catch (error) {
-            console.error(error.response.data.message)
-            alert("Login failed")
+            console.error(error);
+            toast.error(
+                error.response?.data?.message || "Login failed"
+            );
+        } finally {
+            setLoading(false);
         }
-    }
+    };
     return (
         <div className='login-page'>
             <h2>LOGIN</h2>
-            <div className='login-input'>
-                <form onSubmit={handleLoginSubmit}>
-                    <input name="email" value={login.email} onChange={handleLoginChange} type="email" placeholder='Email'></input>
-                    <input name="password" value={login.password} onChange={handleLoginChange} type='password' placeholder='Password'></input>
-                    <button type='submit'>Login</button>
-                </form>
-                <p className="login-register">
-                    Don't have an account?
-                    <button onClick={() => navigate("/register")}>Register</button>
-                </p>
-                <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
-            </div>
+            {loading ? (
+                <Loader text="Logging you in..." />
+            ) : (
+                <div className='login-input'>
+                    <form onSubmit={handleLoginSubmit}>
+                        <input name="email" value={login.email} onChange={handleLoginChange} type="email" placeholder='Email'></input>
+                        <input name="password" value={login.password} onChange={handleLoginChange} type='password' placeholder='Password'></input>
+                        <button type="submit" disabled={loading}>
+                            {loading ? "Logging in..." : "Login"}
+                        </button>
+                    </form>
+                    <p className="login-register">
+                        Don't have an account?
+                        <button onClick={() => navigate("/register")}>Register</button>
+
+                    </p>
+                    <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
+                </div>
+            )}
         </div>
     )
 }

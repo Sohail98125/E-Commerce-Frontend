@@ -6,25 +6,35 @@ import Footer from '../components/footer/Footer'
 import { getProductsByCategory } from "../productapi";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
+import Loader from '../components/loader/Loader'
 
 const ShopCategories = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await getProductsByCategory(category);
-      setProducts(data);
+      try {
+        setLoading(true);
+        const data = await getProductsByCategory(category);
+        setProducts(data || []);
+      } catch (error) {
+        console.error(error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchProducts();
   }, [category]);
   const [bannerUrl, setBannerUrl] = useState(null)
 
   useEffect(() => {
-    const fetchBanner = async () => {
+   const fetchBanner = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/${category}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/${category}`);
         setBannerUrl(res.data.image);
       } catch (err) {
         console.error("Error fetching banner:", err);
@@ -34,9 +44,9 @@ const ShopCategories = () => {
     fetchBanner();
   }, [category]);
 
-
-
-  // const filteredproducts = all_products.filter((item) => item.category === category)
+  if (loading) {
+    return <Loader text="Loading products..." />;
+  }
   return (
     <div className='collection_container'>
       <div className='shop-banner'>

@@ -8,7 +8,7 @@ const SearchProduct = ({setProducts}) => {
     const handleSearch = async(e)=>{
         e.preventDefault()
     try{
-        const{data}= await axios.get(`http://localhost:4000/api/products/search/${keywords}`);
+        const{data}= await axios.get(`${import.meta.env.VITE_API_URL}/api/products/search/${keywords}`);
         setProducts(data);
     }catch(error){
         console.log(error);

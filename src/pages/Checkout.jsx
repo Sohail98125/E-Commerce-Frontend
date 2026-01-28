@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { handleOrder } from '../productapi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import Loader from '../components/loader/Loader';
 import 'react-toastify/dist/ReactToastify.css';
 import { useCart } from 'react-use-cart';
 
@@ -13,6 +14,8 @@ const Checkout = () => {
   const { emptyCart } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
+
+
 
   const { items, cartTotal, totalItems } = location.state || {};
   if (!items || items.length === 0) {
@@ -92,7 +95,7 @@ const Checkout = () => {
       </div>
       <div className='checkout-total'>
         <h3>Total Price: ${cartTotal}</h3>
-        <button onClick={handlePlaceOrder}>{loading ? "Placing order..." : "Place Order"}</button>
+        <button onClick={handlePlaceOrder} disabled={loading}>{loading ? "Placing order..." : "Place Order"}</button>
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
       </div>
     </div>

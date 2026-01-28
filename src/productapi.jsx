@@ -1,11 +1,14 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/products";
+// const API_URL = "http://localhost:4000/api/products";
+
+const API = import.meta.API_URL;
+
 
 // 🟩 1. Get all products
 export const getAllProducts = async (allproducts) => {
   try {
-    const response = await axios.get(`${API_URL}/${allproducts}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${allproducts}`);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -19,7 +22,7 @@ export const getProductById = async () => {
     const { _id } = useParams();
     // const id = Number(productId);
 
-    const response = await axios.get(`http://localhost:4000/api/products/product/${_id}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/product/${_id}`);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching product by ID:", error);
@@ -30,7 +33,7 @@ export const getProductById = async () => {
 // 🟩 3. Get popular products (men or women)
 export const getPopularProducts = async (gender) => {
   try {
-    const response = await axios.get(`${API_URL}/${gender}/popular`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${gender}/popular`);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching popular products:", error);
@@ -41,7 +44,7 @@ export const getPopularProducts = async (gender) => {
 // 🟩 4. Get products by category
 export const getProductsByCategory = async (category) => {
   try {
-    const response = await axios.get(`${API_URL}/${category}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${category}`);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching category products:", error);
@@ -62,7 +65,7 @@ export const getProductsByCategory = async (category) => {
 // POST product add to cart
 export const addToCart = async (userId, productId, quantity = 1) => {
   try {
-    const response = await axios.post('http://localhost:4000/cart', {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/cart`, {
       userId,
       productId,
       quantity,
@@ -77,7 +80,7 @@ export const addToCart = async (userId, productId, quantity = 1) => {
 // POST order
 export const handleOrder = async (orderData) => {
   try {
-    const response = await axios.post('http://localhost:4000/checkout', orderData)
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/order`, orderData)
     return response.data;
   } catch (error) {
     console.error("error to fetch the order", error.response.data || error.message);

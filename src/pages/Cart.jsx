@@ -3,7 +3,9 @@ import React from 'react';
 import { useCart } from 'react-use-cart';
 import { addToCart } from '../productapi';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/loader/Loader';
 import './Cart.css';
+import { useState } from 'react';
 
 const Cart = () => {
   const {
@@ -16,6 +18,7 @@ const Cart = () => {
     emptyCart,
   } = useCart();
   const navigate = useNavigate();
+  const[loading,setLoading]=useState(false)
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.id;
 
@@ -30,6 +33,10 @@ const Cart = () => {
       console.error("Failed to sync with backend:", error);
     }
   };
+  
+  if (loading) {
+    return <Loader text="Loading your cart..." />
+  }
 
   if (isEmpty) return <div><h2>Your Cart is Empty</h2></div>;
 
