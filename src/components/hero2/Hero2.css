@@ -8,110 +8,38 @@
 }
 
 .hero {
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
-}
+ } 
 
 .hero1 {
-  width: 1216px;
+  width: 100%;
   margin: auto;
   height: 490px; 
   background-image: url('/img/hero4.jpg');
 }
 
 .hero2 {
-  width: 500px;
+  width: 100%;
   margin: auto;
   height: 490px;
   background-image: url('/img/hero5.jpg');
 }
 
 .hero3 {
-  width: 500px;
+  width: 100%;
   height: 490px;
   margin: auto;
   background-image: url('/img/hero7.jpg');
 }
 
 .hero4 {
-  width: 500px;
+  width: 100%;
   height: 490px;
   margin: auto;
   background-image: url('/img/hero8.jpg');
-}
-
-.hero1 h2 {
-  position: relative;
-  left: 233px;
-  top: 145px;
-  font-size: medium;
-}
-
-.hero2 h2 {
-  position: relative;
-  right: 210px;
-  top: 130px;
-  font-size: medium;
-  color: white;
-}
-
-.hero3 h2 {
-  position: relative;
-  right: 210px;
-  top: 130px;
-  font-size: medium;
-  color: black
-}
-
-.hero4 h2 {
-  position: relative;
-  right: 210px;
-  top: 130px;
-  font-size: medium;
-  color: white;
-}
-
-#new1 {
-  position: relative;
-  right: 233px;
-  top: 170px;
-  bottom: 240px;
-  text-align: right;
-  font-size: xx-large;
-  font-weight: 600;
-}
-
-#new2 {
-  position: relative;
-  left: 255px;
-  top: 155px;
-  text-align: left;
-  font-size: xx-large;
-  font-weight: 600;
-  color: white;
-}
-
-#new3 {
-  position: relative;
-  left: 255px;
-  top: 155px;
-  text-align: left;
-  font-size: xx-large;
-  font-weight: 600;
-  color: black;
-
-}
-
-#new4 {
-  position: relative;
-  left: 255px;
-  top: 155px;
-  text-align: left;
-  font-size: xx-large;
-  font-weight: 600;
-  color: white;
 }
 
 .heroine {
@@ -119,88 +47,147 @@
   background-color: #f9f9f9;
 }
 
-.hero2-explore {
-  text-decoration: none;
-  position: relative;
-  border: 2px solid orangered;
-  bottom: -175px;
-  right: -256px;
-  color: white;
-  background-color: orangered;
-  border-radius: 45px;
+.hero1,
+.hero2,
+.hero3,
+.hero4 {
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  justify-items: center;
-  width: 180px;
-  height: 40px;
-  font-size: medium;
-  font-weight: 400;
-  padding: 5px;
+  background-size: cover;
+  background-position: center;
 }
 
-.hero3-explore {
-  text-decoration: none;
-  position: relative;
-  border: 2px solid orangered;
-  bottom: -175px;
-  right: -256px;
+.hero1{
+  align-items: flex-end;
+  padding-right: 8%;
+  text-align: right;
+}
+.hero4 ,
+.hero3,
+.hero2 {
+  align-items: flex-start;
+  padding-left: 8%;
+  text-align: left;
   color: white;
-  background-color: orangered;
-  border-radius: 45px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  width: 180px;
-  height: 40px;
-  font-size: medium;
-  font-weight: 400;
-  padding: 5px;
+}
+.hero h2 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
+#new1,
+#new2,
+#new3,
+#new4 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+#new1 p,
+#new2 p,
+#new3 p,
+#new4 p {
+margin: 0;
+}
+.hero1,
+.hero2,
+.hero3,
+.hero4 {
+padding: 110px;
+}
+
+
+.hero1-explore,
+.hero2-explore,
+.hero3-explore,
 .hero4-explore {
-  text-decoration: none;
-  position: relative;
-  border: 2px solid orangered;
-  bottom: -175px;
-  right: -256px;
-  color: white;
+  margin-top: 28px;
+  padding: 14px 38px;
+  border-radius: 50px;
   background-color: orangered;
-  border-radius: 45px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  width: 180px;
-  height: 40px;
-  font-size: medium;
-  font-weight: 400;
-  padding: 5px;
-}
-
-.hero1-explore {
-  text-decoration: none;
-  position: relative;
-  border: 2px solid orangered;
-  bottom: -188px;
-  left: 658px;
-  color: white;
-  background-color: orangered;
-  border-radius: 45px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  width: 180px;
-  height: 40px;
-  font-size: medium;
-  font-weight: 400;
-  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 1px solid orangered;
 }
 
 .hero1-explore:hover,
 .hero2-explore:hover,
 .hero3-explore:hover,
-.hero4-explore:hover {
+.hero4-explore:hover{
   background-color: white;
-  color: orangered;
-  text-decoration: none;
-  border: 2px solid orangered;
+  color: orangered; 
+  transform: translateY(-4%);
+}
+@media (max-width: 768px) {
+  .hero1,
+  .hero2,
+  .hero3,
+  .hero4 {
+    align-items: center;
+    padding: 104px;
+    text-align: center;
+  }
+
+  #new1,
+  #new2,
+  #new3,
+  #new4 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+
+
+  .hero {
+    width: 92%;        
+    margin: 20px auto;
+  }
+
+  .hero1,
+  .hero2,
+  .hero3,
+  .hero4 {
+    width: 100%;
+    height: 220px;       
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 24px; 
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  .hero h2 {
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  
+  #new1,
+  #new2,
+  #new3,
+  #new4 {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+
+  .hero1-explore,
+  .hero2-explore,
+  .hero3-explore,
+  .hero4-explore {
+    margin-top: 12px;
+    padding: 7px 16px;
+    font-size: 11px;
+  }
 }

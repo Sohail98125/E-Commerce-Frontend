@@ -111,85 +111,82 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06);
 }
-
 @media (max-width: 480px) {
+  .cart-page {
+    margin: 15px auto;
+    padding: 15px;
+    width: 95%;
+    border-radius: 10px;
+    border: 1px solid gray;
+  }
 
-    .cart-page {
-        padding: 15px 10px;
-        margin: 15px auto;
-    }
+  .cart-page h2 {
+    font-size: 12px;
+    text-align: center;
+  }
 
-    .cart-page h2 {
-        font-size: 22px;
-        text-align: center;
-    }
+  .cart-page hr {
+    width: 50%;
+    height: 1px;
+    margin: 15px auto;
+  }
 
-    .cart-page hr {
-        width: 100%;
-        max-width: 260px;
-    }
+  .cart-item {
+    flex-direction:row;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+  }
 
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 12px;
-    }
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+  }
 
-    .cart-item img {
-        width: 80px;
-        height: 80px;
-    }
+  .item-details {
+    width: 100%;
+    gap: 6px;
+  }
 
-    .item-details p:first-child {
-        font-size: 16px;
-    }
+  .item-details p:first-child {
+    font-size: 12px;
+  }
 
-    .cart-control {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
+  .cart-control {
+    gap: 6px;
+    margin-top: 4px;
+  }
 
-    .cart-summary {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
+  .cart-control button {
+    padding: 5px 8px;
+    min-width: 30px;
+    height: 25px;
+    font-size: 12px;
+  }
 
-    .cart-summary h3 {
-        text-align: center;
-    }
+  .cart-control span {
+    min-width: 24px;
+    font-size: 12px;
+  }
 
-    .cart-summary button {
-        width: 100%;
-        padding: 12px;
-        font-size: 15px;
-    }
-}
-@media (min-width: 481px) and (max-width: 768px) {
+  .cart-summary {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    margin-top: 12px;
+    padding-top: 10px;
+  }
 
-    .cart-page {
-        padding: 18px;
-    }
+  .cart-summary h3 {
+    font-size: 16px;
+    text-align: right;
+  }
 
-    .cart-item {
-        gap: 14px;
-    }
-
-    .cart-summary {
-        justify-content: space-between;
-    }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    .cart-page {
-        max-width: 900px;
-    }
-}
-@media (min-width: 1200px) {
-
-    .cart-page {
-        max-width: 1000px;
-        margin: 28px auto;
-    }
+  .cart-summary button {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+  }
 }

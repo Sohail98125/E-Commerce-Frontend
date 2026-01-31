@@ -38,30 +38,30 @@ form {
   transform: scale(1.05);
 }
 @media (max-width: 480px) {
-    .navbar {
-        padding: 8px 10px;
-    }
 
-    .nav-logo p {
-        font-size: 20px;
-    }
+  form {
+    justify-content: center;   /* center align */
+    flex-direction: row;    /* input + button vertical */
+    margin: 12px 0;
+    gap: 8px;
+  }
 
-    .nav-menu {
-        gap: 6px;
-        font-size: 12px;
-    }
+  .form-control {
+    width: 100%;               
+    max-width: 280px;         
+    font-size: 14px;
+    padding: 8px 12px;
+  }
 
-    .nav-login-cart button {
-        width: 70px;
-        height: 30px;
-        font-size: 10px;
-    }
+  .btn-primary {
+    width: 100%;
+    max-width: 54px;
+    padding: 8px 0;
+    font-size: 14px;
+    transform: none;           
+  }
 
-    .nav-cart-count {
-        height: 16px;
-        width: 16px;
-        font-size: 10px;
-        top: -6px;
-        left: -6px;
-    }
+  .btn-primary:hover {
+    transform: none;
+  }
 }

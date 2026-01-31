@@ -16,8 +16,6 @@ body{
   border: 0;
   outline: 0;
 }
-
-/* Layout container helper */
 .container{
   max-width: var(--max-width);
   margin-left: auto;
